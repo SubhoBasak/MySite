@@ -1,0 +1,21 @@
+{% extends base_template %}
+
+{% block title %}
+	<title>{{user.username}} - Home</title>
+{% endblock %}
+
+{% block content %}
+	{% if posts %}
+		{% for post in posts %}
+			<a href="{% url 'home:detail_view' post.id %}">
+				<h3><font color = 'green'>{{post.header}}</font></h3>
+				{% if post.image %}
+					<img src = {{post.image.url}} style = 'width: 300px; height: 100px;'>
+				{% endif %}
+				{% if post.text %}
+					<p>{{post.text|slice:':100'}}</p>
+				{% endif %}
+			</a>
+		{% endfor %}
+	{% endif %}
+{% endblock %}

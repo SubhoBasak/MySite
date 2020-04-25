@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		{% block title %} {% endblock %}
+	</head>
+	<body bgcolor = 'gray'>
+		<img src="{% static 'icons/main_icon.jfif' %}">
+		<a href="/"
+			style = "margin: 5px;
+					 background-color: #ffea2e;
+					 color: black;
+					 padding: 10px;
+					 font-size: 25px;">
+			Home
+		</a>
+		{% if user.is_authenticated %}
+			<a href="{% url 'home:profile' user.id %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Profile
+			</a>
+			<a href="{% url 'home:newpost' %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Create post
+			</a>
+			<a href="{% url 'home:friends' %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Friends
+			</a>
+			<a href="{% url 'home:logout' %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Log out
+			</a>
+		{% else %}
+			<a href="{% url 'home:login' %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Log in
+			</a>
+			<a href="{% url 'home:register' %}"
+				style = "margin: 5px;
+						 background-color: #ffea2e;
+						 color: black;
+						 padding: 10px;
+						 font-size: 25px;">
+				Register
+			</a>
+		{% endif %}
+		<br>
+		<hr color = 'orange'>
+		{% block content %}
+
+		{% endblock %}
+	</body>
+</html>

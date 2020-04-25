@@ -1,0 +1,14 @@
+{% extends 'light_theme.html' %}
+
+{% block title %}
+	<title>Register</title>
+{% endblock %}
+
+{% block content %}
+	<form method = 'POST'>
+		{{form.as_p}}
+		<input type = 'text' name = 'captcha'>
+		<button type = 'submit'>Register</button>
+	</form>
+	<p>Already registered? <a href="{% url 'home:login' %}">Log in here</a></p>
+{% endblock %}

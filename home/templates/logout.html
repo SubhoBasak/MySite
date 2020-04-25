@@ -1,0 +1,12 @@
+{% extends 'light_theme.html' %}
+
+{% block title %}
+	<title>Log out</title>
+{% endblock %}
+
+{% block content %}
+	<p>Successfully logged out</p>
+	<br>
+	<a href = "{% url 'home:login' %}"><p><font size = '4px'>Log in again</font></p></a>
+	<a href = "{% url 'home:register' %}"><p><font size = '4px'>Create new account</font></p>
+{% endblock %}
